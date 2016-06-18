@@ -61,7 +61,7 @@ end
 """
 Returns the path to the Documenter `assets` directory.
 """
-assetsdir() = normpath(joinpath(dirname(@__FILE__), "..", "assets"))
+assetsdir() = normpath(joinpath(dirname(@__FILE__), "..", "..", "assets"))
 
 cleandir(d::AbstractString) = (isdir(d) && rm(d, recursive = true); mkdir(d))
 
@@ -463,5 +463,7 @@ function issubmodule(sub, mod)
     end
     (sub === mod) || issubmodule(module_parent(sub), mod)
 end
+
+include("DOM.jl")
 
 end
